@@ -8,7 +8,7 @@ void rush(int c, int r)
 	int row;
 	int col;
 	row = 1;
-	while(row <= r && c > 1)
+	while(row <= r && c >= 1)
 	{
 		col = 1;
 		while(col <= c)
