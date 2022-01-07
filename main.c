@@ -1,27 +1,42 @@
 #include <unistd.h>
 #include "rush01.c"
 
-void rush(int x, int y);
+void rush(int col, int row);
+int atoi(char *av);
 
 int main(int ac, char **av)
 {
 	int col;
 	int row;
-	int ic;
-	int ir;
 
 	if (av[1][0] == '-' || av[2][0] == '-')
-	{
 		return (0);
-	}
-	else
-	{
-		col = av[1][0] - '0';
-		row = av[2][0] - '0';
-	}
-	if ((av[1][ic] >= '1' && av[1][ic] <= '9') && (av[2][ir] >= '1' && av[2][ir] <='9'))
-		rush(col, row);
-	else
+	col = atoi(av[1]);
+	row = atoi(av[2]);
+	if (col > 2147483647 || row > 2147483647 || col < -2147483648 || row < -2147483648)
 		return (0);
+	rush(col, row);
 	return (0);
+}
+
+int atoi(char *av)
+{
+	int i;
+	int num;
+
+	i = 0;
+	num = 0;
+	while(av[i] != '\0')
+	{
+		if (av[i] >= '0' && av[i] <= '9')
+		{
+			num *= 10;
+			num += av[i] - '0';
+			i++;
+		}
+		else
+			return (0);
+
+	}
+	return (num);
 }

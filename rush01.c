@@ -1,6 +1,5 @@
 #include <unistd.h>
 #include "ft_putchar.c"
-#include <stdio.h>
 
 void ft_putchar(char c);
 
@@ -8,9 +7,8 @@ void rush(int c, int r)
 {
 	int row;
 	int col;
-	printf("%d %d\n", c, r);	
 	row = 1;
-	while(row <= r)
+	while(row <= r && c > 1)
 	{
 		col = 1;
 		while(col <= c)
