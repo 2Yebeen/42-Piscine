@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rush01.c                                           :+:      :+:    :+:   */
+/*   rush03.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chanbpar <chanbpar@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/08 15:49:32 by chanbpar          #+#    #+#             */
-/*   Updated: 2022/01/08 15:49:33 by chanbpar         ###   ########.fr       */
+/*   Created: 2022/01/08 15:49:44 by chanbpar          #+#    #+#             */
+/*   Updated: 2022/01/08 15:49:45 by chanbpar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,12 @@ void	rush(int c, int r)
 		col = 1;
 		while (col <= c)
 		{
-			if (row == 1 && col == 1)
-				ft_putchar('/');
-			else if ((row == r && r != 1) && (col == c && c != 1))
-				ft_putchar('/');
-			else if ((row == 1 && col == c) || (row == r && col == 1))
-				ft_putchar('\\');
-			else if (row == 1 || row == r || col == 1 || col == c)
-				ft_putchar('*');
+			if ((row == 1 && col == 1) || ((row == r) && (col == 1)))
+				ft_putchar('A');
+			else if ((row == r && col == c) || (row == 1 && col == c))
+				ft_putchar('C');
+			else if ((row == 1 || row == r) || (col == c || col == 1))
+				ft_putchar('B');
 			else
 				ft_putchar(' ');
 			col++;
