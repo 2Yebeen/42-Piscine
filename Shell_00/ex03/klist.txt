@@ -1,0 +1,5 @@
+Credentials cache: API:E6495F39-5BFF-46F5-A47F-4292B6408CCE
+        Principal: yeblee@42SEOUL.KR
+
+  Issued                Expires             Flags    Principal
+Jan  3 13:46:22 2022  Jan  3 23:46:22 2022  FPRIA  krbtgt/42SEOUL.KR@42SEOUL.KR
