@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yeblee <yeblee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/12 17:38:01 by yeblee            #+#    #+#             */
-/*   Updated: 2022/01/16 10:56:02 by yeblee           ###   ########.fr       */
+/*   Created: 2022/01/17 10:02:27 by yeblee            #+#    #+#             */
+/*   Updated: 2022/01/17 10:56:57 by yeblee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+int	ft_iterative_factorial(int nb)
 {
-	int	i;
+	int num;
 
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
+	num = 1;
+	if (nb < 0)
+		return (0);
+	while (1 < nb)
+	{
+		num *= nb;
+		nb--;
+	}
+	return (num);
 }

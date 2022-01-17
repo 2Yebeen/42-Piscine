@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yeblee <yeblee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/12 17:38:01 by yeblee            #+#    #+#             */
-/*   Updated: 2022/01/16 10:56:02 by yeblee           ###   ########.fr       */
+/*   Created: 2022/01/17 14:46:16 by yeblee            #+#    #+#             */
+/*   Updated: 2022/01/17 16:04:09 by yeblee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-int	ft_strlen(char *str)
+int	is_prime(int nb)
 {
-	int	i;
+	
+}
 
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
+int	ft_find_next_prime(int nb)
+{
+	if (ft_is_prime(nb))
+		return (nb);
+	else
+		ft_is_prime(
+	
 }
