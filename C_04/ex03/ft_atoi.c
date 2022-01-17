@@ -6,39 +6,32 @@
 /*   By: yeblee <yeblee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 20:27:41 by yeblee            #+#    #+#             */
-/*   Updated: 2022/01/13 20:58:29 by yeblee           ###   ########.fr       */
+/*   Updated: 2022/01/17 16:49:34 by yeblee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
 
 int	ft_atoi(char *str)
 {
-	int	i;
-	int	num;
-	int	negative;
+	int				i;
+	long long int	num;
+	int				sign;
 
 	i = 0;
 	num = 0;
-	negative = 0;
-	while (str[i] && str[i] < '0' || str[i] > '9')
+	sign = 1;
+	while (str[i] && ((str[i] >= 9 && str[i] <= 13) || str[i] == ' '))
+		i++;
+	while (str[i] && (str[i] == '-' || str[i] == '+'))
 	{
 		if (str[i] == '-')
-			negative *= -1;
+			sign *= -1;
 		i++;
 	}
-	while (str[i] && str[i] >= '0' && str[i] <='9')
+	while (str[i] && str[i] >= '0' && str[i] <= '9')
 	{
 		num *= 10;
 		num += (str[i] - '0');
 		i++;
 	}
-	return (num * negative);
-}
-
-int	main(int ac, char **av)
-{
-	int ans;
-	ans = ft_atoi(av[1]);
-	printf("%d\n", ans);
-	return (0);
+	return (num * sign);
 }

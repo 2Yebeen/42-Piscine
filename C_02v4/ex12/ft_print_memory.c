@@ -1,21 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_print_memory.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yeblee <yeblee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/12 17:38:01 by yeblee            #+#    #+#             */
-/*   Updated: 2022/01/16 10:56:02 by yeblee           ###   ########.fr       */
+/*   Created: 2022/01/12 09:59:36 by yeblee            #+#    #+#             */
+/*   Updated: 2022/01/13 13:51:52 by yeblee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-int	ft_strlen(char *str)
+void	*ft_print_memory(void *addr, unsigned int size)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
 }

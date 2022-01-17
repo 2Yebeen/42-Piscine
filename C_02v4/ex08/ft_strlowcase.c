@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yeblee <yeblee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/12 17:38:01 by yeblee            #+#    #+#             */
-/*   Updated: 2022/01/16 10:56:02 by yeblee           ###   ########.fr       */
+/*   Created: 2022/01/09 20:45:25 by yeblee            #+#    #+#             */
+/*   Updated: 2022/01/09 20:53:38 by yeblee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+#include <unistd.h>
+char	*ft_strlowcase(char *str)
 {
 	int	i;
+	int	n;
 
 	i = 0;
+	n = 'a' - 'A';
 	while (str[i] != '\0')
+	{
+		if (str[i] >= 'A' && str[i] <= 'Z')
+			str[i] += n;
 		i++;
-	return (i);
+	}
+	return (str);
 }

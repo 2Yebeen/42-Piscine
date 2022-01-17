@@ -1,21 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yeblee <yeblee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/12 17:38:01 by yeblee            #+#    #+#             */
-/*   Updated: 2022/01/16 10:56:02 by yeblee           ###   ########.fr       */
+/*   Created: 2022/01/09 21:29:15 by yeblee            #+#    #+#             */
+/*   Updated: 2022/01/17 13:53:22 by yeblee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
-{
-	int	i;
+#include <unistd.h>
 
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+{
+	unsigned int	len;
+	unsigned int	i;
+
+	len = 0;
 	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
+	while (src[len] != '\0')
+		len++;
+	if (size != 0)
+	{
+		while (i < (size - 1) && src[i] != '\0')
+		{
+			dest[i] = src[i];
+			i++;
+		}
+		dest[i] = '\0';
+	}
+	return (len);
 }
