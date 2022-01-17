@@ -1,11 +1,26 @@
+<<<<<<< HEAD
 #include <stdio.h>
 #include <string.h>
+=======
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yeblee <yeblee@student.42seoul.kr>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/11 14:28:12 by yeblee            #+#    #+#             */
+/*   Updated: 2022/01/13 14:26:12 by yeblee           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+>>>>>>> d985a974f9c757093eac1a5ced533fc879ccb636
 
 int	ft_strcmp(char *s1, char *s2)
 {
 	int	i;
 
 	i = 0;
+<<<<<<< HEAD
 	while ( s1[i] != '\0' || s2[i] != '\0')
 	{
 		return (s1[i] > s2[i] ? 1 : -1);
@@ -34,4 +49,9 @@ int	main()
 	b = strcmp(str1, "AAAA");
 	printf("strcmp (%s,AAAA) => %d\n ",str1, b);
 	return (0);
+=======
+	while (s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i])
+		i++;
+	return (s1[i] - s2[i]);
+>>>>>>> d985a974f9c757093eac1a5ced533fc879ccb636
 }
