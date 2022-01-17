@@ -1,28 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
+/*   ft_print_memory.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yeblee <yeblee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/09 10:17:53 by yeblee            #+#    #+#             */
-/*   Updated: 2022/01/10 15:32:57 by yeblee           ###   ########.fr       */
+/*   Created: 2022/01/12 09:59:36 by yeblee            #+#    #+#             */
+/*   Updated: 2022/01/13 13:51:52 by yeblee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
-
-void	ft_rev_int_tab(int *tab, int size)
+void	*ft_print_memory(void *addr, unsigned int size)
 {
-	int	i;
-	int	temp;
-
-	i = 0;
-	while (i < size / 2)
-	{
-		temp = tab[i];
-		tab[i] = tab[size - 1 - i];
-		tab[size - 1 - i] = temp;
-		i++;
-	}
 }

@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yeblee <yeblee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/09 10:17:53 by yeblee            #+#    #+#             */
-/*   Updated: 2022/01/10 15:32:57 by yeblee           ###   ########.fr       */
+/*   Created: 2022/01/09 21:29:15 by yeblee            #+#    #+#             */
+/*   Updated: 2022/01/17 13:53:22 by yeblee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_rev_int_tab(int *tab, int size)
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	int	i;
-	int	temp;
+	unsigned int	len;
+	unsigned int	i;
 
+	len = 0;
 	i = 0;
-	while (i < size / 2)
+	while (src[len] != '\0')
+		len++;
+	if (size != 0)
 	{
-		temp = tab[i];
-		tab[i] = tab[size - 1 - i];
-		tab[size - 1 - i] = temp;
-		i++;
+		while (i < (size - 1) && src[i] != '\0')
+		{
+			dest[i] = src[i];
+			i++;
+		}
+		dest[i] = '\0';
 	}
+	return (len);
 }

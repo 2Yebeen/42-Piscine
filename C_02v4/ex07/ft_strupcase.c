@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
+/*   ft_strupcase.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yeblee <yeblee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/09 10:17:53 by yeblee            #+#    #+#             */
-/*   Updated: 2022/01/10 15:32:57 by yeblee           ###   ########.fr       */
+/*   Created: 2022/01/09 18:44:07 by yeblee            #+#    #+#             */
+/*   Updated: 2022/01/09 20:37:11 by yeblee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_rev_int_tab(int *tab, int size)
+char	*ft_strupcase(char *str)
 {
 	int	i;
-	int	temp;
+	int	n;
 
 	i = 0;
-	while (i < size / 2)
+	n = 'a' - 'A';
+	while (str[i] != '\0')
 	{
-		temp = tab[i];
-		tab[i] = tab[size - 1 - i];
-		tab[size - 1 - i] = temp;
+		if (str[i] >= 'a' && str[i] <= 'z')
+			str[i] -= n;
 		i++;
 	}
+	return (str);
 }
