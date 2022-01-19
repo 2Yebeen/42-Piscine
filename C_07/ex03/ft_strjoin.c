@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeblee <yeblee@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: yeblee <yeblee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/17 13:43:10 by yeblee            #+#    #+#             */
-/*   Updated: 2022/01/18 16:07:52 by yeblee           ###   ########.fr       */
+/*   Created: 2022/01/19 15:19:37 by yeblee            #+#    #+#             */
+/*   Updated: 2022/01/19 15:20:02 by yeblee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_sqrt(int nb)
-{
-	long	x;
+#include <stdlib.h>
 
-	x = 1;
-	while (x * x < nb)
-		x++;
-	if ((x * x) == nb)
-		return (x);
-	return (0);
+char	*ft_strjoin(int size, char **strs, char *sep)
+{
+	
 }

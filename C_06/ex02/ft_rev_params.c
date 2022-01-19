@@ -1,39 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
+/*   ft_rev_params.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yeblee <yeblee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/17 14:46:16 by yeblee            #+#    #+#             */
-/*   Updated: 2022/01/18 16:08:30 by yeblee           ###   ########.fr       */
+/*   Created: 2022/01/19 09:34:56 by yeblee            #+#    #+#             */
+/*   Updated: 2022/01/19 15:18:13 by yeblee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_is_prime(int nb)
-{
-	int		i;
+#include <unistd.h>
 
-	i = 2;
-	if (nb <= 1)
-		return (0);
-	while (i <= nb / i)
-	{
-		if (nb % i == 0)
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-int	ft_find_next_prime(int nb)
+int	ft_str_len(char *str)
 {
 	int	i;
 
-	if (nb <= 1)
-		return (2);
-	i = nb;
-	while (!ft_is_prime(i))
+	i = 0;
+	while (str[i])
 		i++;
 	return (i);
+}
+
+void	ft_print(int size, char **str)
+{
+	int	i;
+	int	len;
+
+	i = size - 1;
+	while (i > 0)
+	{
+		len = ft_str_len(str[i]);
+		write(1, str[i], len);
+		write(1, "\n", 1);
+		i--;
+	}
+}
+
+int	main(int ac, char **av)
+{
+	ft_print(ac, av);
+	return (0);
 }

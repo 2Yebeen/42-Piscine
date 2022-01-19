@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   ft_print_program_name.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeblee <yeblee@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: yeblee <yeblee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/17 13:43:10 by yeblee            #+#    #+#             */
-/*   Updated: 2022/01/18 16:07:52 by yeblee           ###   ########.fr       */
+/*   Created: 2022/01/18 16:21:45 by yeblee            #+#    #+#             */
+/*   Updated: 2022/01/18 21:17:06 by yeblee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_sqrt(int nb)
-{
-	long	x;
+#include <unistd.h>
 
-	x = 1;
-	while (x * x < nb)
-		x++;
-	if ((x * x) == nb)
-		return (x);
+int	main(int ac, char **av)
+{
+	int	j;
+
+	j = 0;
+	if (ac > 0)
+	{
+		while (av[0][j])
+			j++;
+		write(1, av[0], j);
+		write(1, "\n", 1);
+	}
 	return (0);
 }

@@ -1,39 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yeblee <yeblee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/17 14:46:16 by yeblee            #+#    #+#             */
-/*   Updated: 2022/01/18 16:08:30 by yeblee           ###   ########.fr       */
+/*   Created: 2022/01/19 10:54:16 by yeblee            #+#    #+#             */
+/*   Updated: 2022/01/19 12:14:59 by yeblee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_is_prime(int nb)
-{
-	int		i;
+#include <stdlib.h>
 
-	i = 2;
-	if (nb <= 1)
-		return (0);
-	while (i <= nb / i)
-	{
-		if (nb % i == 0)
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-int	ft_find_next_prime(int nb)
+int	ft_str_len(char *src)
 {
 	int	i;
 
-	if (nb <= 1)
-		return (2);
-	i = nb;
-	while (!ft_is_prime(i))
+	i = 0;
+	while (src[i])
 		i++;
 	return (i);
+}
+
+char	*ft_strdup(char *src)
+{
+	int		i;
+	int		size;
+	char	*strdup;
+
+	i = 0;
+	size = ft_str_len(src);
+	strdup = (char *)malloc(sizeof(char) * (size + 1));
+	while (i < size)
+	{
+		strdup[i] = src[i];
+		i++;
+	}
+	strdup[i] = '\0';
+	if (!strdup)
+		return (0);
+	else
+		return (strdup);
 }

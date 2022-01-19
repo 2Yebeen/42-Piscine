@@ -6,14 +6,14 @@
 /*   By: yeblee <yeblee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 13:49:28 by yeblee            #+#    #+#             */
-/*   Updated: 2022/01/17 15:36:20 by yeblee           ###   ########.fr       */
+/*   Updated: 2022/01/18 16:08:17 by yeblee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_is_prime(int nb)
+int	ft_is_prime(int nb)
 {
 	int	i;
-	int num;
+	int	num;
 
 	if (nb <= 1)
 		return (0);
