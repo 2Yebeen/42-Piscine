@@ -6,10 +6,11 @@
 /*   By: yeblee <yeblee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 10:35:29 by yeblee            #+#    #+#             */
-/*   Updated: 2022/01/13 14:51:29 by yeblee           ###   ########.fr       */
+/*   Updated: 2022/01/11 20:04:35 by yeblee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
+#include <stdio.h>
 
 char	ft_get_hexa(int n)
 {
@@ -20,7 +21,7 @@ char	ft_get_hexa(int n)
 
 void	ft_print(int c)
 {
-	char	asci;
+	char			asci;
 
 	if (c < 0)
 	{
@@ -46,4 +47,13 @@ void	ft_putstr_non_printable(char *str)
 			ft_print(str[i]);
 		i++;
 	}
+}
+
+int	main()
+{
+	int i;
+	
+	ft_putstr_non_printable("Coucou\ntu vas bien ?"); 
+	write(1, "\n", 1); 
+	ft_putstr_non_printable("\x01\x02oucou\n\xfe\xff, fe ff");
 }
