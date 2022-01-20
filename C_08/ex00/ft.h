@@ -1,37 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_params.c                                  :+:      :+:    :+:   */
+/*   ft.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeblee <yeblee@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yeblee <yeblee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/18 16:25:31 by yeblee            #+#    #+#             */
-/*   Updated: 2022/01/20 08:40:08 by yeblee           ###   ########.fr       */
+/*   Created: 2022/01/20 13:22:27 by yeblee            #+#    #+#             */
+/*   Updated: 2022/01/20 19:37:53 by yeblee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#ifndef FT_H
+# define FT_H
 
-void	ft_print(char *str)
-{
-	int	i;
+void	ft_putchar(char c);
+void	ft_swap(int *a, int *b);
+void	ft_putstr(char *str);
+int		ft_strlen(char *str);
+int		ft_strcmp(char *s1, char *s2);
 
-	i = 0;
-	while (str[i])
-		i++;
-	write(1, str, i);
-	write(1, "\n", 1);
-}
-
-int	main(int ac, char **av)
-{
-	int	i;
-
-	i = 1;
-	while (i < ac)
-	{
-		ft_print(av[i]);
-		i++;
-	}
-	return (0);
-}
+#endif

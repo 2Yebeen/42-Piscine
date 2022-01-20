@@ -1,37 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_params.c                                  :+:      :+:    :+:   */
+/*   ft_point.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeblee <yeblee@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yeblee <yeblee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/18 16:25:31 by yeblee            #+#    #+#             */
-/*   Updated: 2022/01/20 08:40:08 by yeblee           ###   ########.fr       */
+/*   Created: 2022/01/20 14:33:43 by yeblee            #+#    #+#             */
+/*   Updated: 2022/01/20 19:37:35 by yeblee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#ifndef FT_POINT_H
+# define FT_POINT_H
 
-void	ft_print(char *str)
-{
-	int	i;
+typedef struct t_point {
+	int	x;
+	int	y;
+}	t_point;
 
-	i = 0;
-	while (str[i])
-		i++;
-	write(1, str, i);
-	write(1, "\n", 1);
-}
-
-int	main(int ac, char **av)
-{
-	int	i;
-
-	i = 1;
-	while (i < ac)
-	{
-		ft_print(av[i]);
-		i++;
-	}
-	return (0);
-}
+#endif

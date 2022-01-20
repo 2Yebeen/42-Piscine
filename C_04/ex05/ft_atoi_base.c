@@ -1,51 +1,38 @@
-int	ft_base_len(char *base)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi_base.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yeblee <yeblee@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/18 10:35:43 by yeblee            #+#    #+#             */
+/*   Updated: 2022/01/18 19:15:54 by yeblee           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+int	ft_is_in_base(char *base, char c)
 {
 	int	i;
 
 	i = 0;
-	while (base[i])
-		i++;
-	return (i);
-}
-
-int	ft_is_in_base(char c, char *base)
-{
-	int	i;
-
-	i = 0;
-	while (base[i] != c)
-		i++;
-	if (!base[i])
-		return (0);
-	else
-		return (1);
-}
-
-int	ft_get_base(char c, char *base)
-{
-	int	i;
-
-	i = 0;
-	while (base[i])
+	while (base[i] != 0)
 	{
 		if (base[i] == c)
 			return (i);
 		i++;
 	}
-	return (i);
+	return (-1);
 }
 
-int	ft_atoi(char *str, char *base)
+int	ft_check_atoi(char *str, char *base, int len)
 {
 	int	i;
-	int	nbr;
-	int	len;
 	int	sign;
+	int	num;
 
 	i = 0;
-	nbr = 0;
+	num = 0;
 	sign = 1;
-	len = ft_base_len(base);
 	while (str[i] && ((str[i] >= 9 && str[i] <= 13) || str[i] == ' '))
 		i++;
 	while (str[i] && (str[i] == '-' || str[i] == '+'))
@@ -54,51 +41,48 @@ int	ft_atoi(char *str, char *base)
 			sign *= -1;
 		i++;
 	}
-	while (str[i] && ft_is_in_base(str[i], base))
+	while (str[i] != 0 && ft_is_in_base(base, str[i]) != -1)
 	{
-		nbr *= len;
-		nbr += ft_get_base(str[i], base);
+		num = num * len + ft_is_in_base(base, str[i]);
 		i++;
 	}
-	return (nbr * sign);
+	return (num * sign);
 }
 
-int	ft_base_valid(char *base)
+int	ft_check_base(char *str)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	if (ft_base_len(base) < 2)
-		return (0);
-	while (base[i] != '\0')
+	while (str[i] != 0)
 	{
-		if ((base[i] >= 9 && base[i] <= 13) || base[i] == ' ' 
-			|| base[i] == '-' || base[i] == '+')
-			return (0);
-		j = i + 1;
-		while (base[j] != '\0')
+		j = 0;
+		while (str[j] != 0)
 		{
-			if (base[i] == base[j])
-				return (0);
+			if (i != j && str[i] == str[j])
+				return (-1);
 			j++;
 		}
+		if ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
+			return (-1);
+		if (str[i] == '+' || str[i] == '-')
+			return (-1);
 		i++;
 	}
-	return (1);
+	return (i);
 }
 
 int	ft_atoi_base(char *str, char *base)
 {
-	int	i;
 	int	nbr;
-	int	len;
+	int	i;
+	int	base_len;
 
-	i = 0;
+	i = -1;
 	nbr = 0;
-	len = ft_base_len(base);
-	if (!ft_base_valid(base))
+	base_len = ft_check_base(base);
+	if (base_len < 2)
 		return (0);
-	nbr = ft_atoi(str, base);
-	return (nbr);
+	return (ft_check_atoi(str, base, base_len));
 }

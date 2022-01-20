@@ -1,37 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_params.c                                  :+:      :+:    :+:   */
+/*   ft_abs.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeblee <yeblee@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yeblee <yeblee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/18 16:25:31 by yeblee            #+#    #+#             */
-/*   Updated: 2022/01/20 08:40:08 by yeblee           ###   ########.fr       */
+/*   Created: 2022/01/20 13:23:06 by yeblee            #+#    #+#             */
+/*   Updated: 2022/01/20 19:42:34 by yeblee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#ifndef FT_ABS_H
+# define FT_ABS_H
 
-void	ft_print(char *str)
-{
-	int	i;
+# define ABS(v) (v < 0 ? -v : v)
 
-	i = 0;
-	while (str[i])
-		i++;
-	write(1, str, i);
-	write(1, "\n", 1);
-}
-
-int	main(int ac, char **av)
-{
-	int	i;
-
-	i = 1;
-	while (i < ac)
-	{
-		ft_print(av[i]);
-		i++;
-	}
-	return (0);
-}
+#endif
