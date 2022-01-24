@@ -5,65 +5,80 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yeblee <yeblee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/19 15:19:37 by yeblee            #+#    #+#             */
-/*   Updated: 2022/01/22 20:44:15 by yeblee           ###   ########.fr       */
+/*   Created: 2022/01/23 09:30:30 by yeblee            #+#    #+#             */
+/*   Updated: 2022/01/23 16:56:22 by yeblee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
 
-int	ft_str_len(char *str)
+void	ft_strcat(char *ans, char *str)
 {
 	int	i;
+	int	j;
 
 	i = 0;
-	while (str[i])
+	j = 0;
+	while (ans[i])
 		i++;
-	return (i);
+	while (str[j])
+	{
+		ans[i + j] = str[j];
+		j++;
+	}
+	ans[i + j] = 0;
 }
 
-void	ft_putstr(char *ans, char *str)
+int	ft_len(char **strs, char *sep, int size)
 {
+	int	count;
 	int	i;
-	int	idx;
+	int	j;
 
 	i = 0;
-	idx = ft_str_len(ans);
-	printf("idx : %d", idx);
-	while (str[i])
+	count = 0;
+	while (sep[i])
+		i++;
+	count = count + (i * (size - 1));
+	i = 0;
+	while (i < size)
 	{
-		ans[idx] = str[i];
-		idx++;
+		j = 0;
+		while (strs[i][j])
+		{
+			j++;
+			count = count + 1;
+		}
 		i++;
 	}
-	ans[idx] = 0;
+	return (count + 1);
 }
 
 char	*ft_strjoin(int size, char **strs, char *sep)
 {
-	int		i;
-	int		len;
-	char	*ans;
+	char	*arr;
+	int		count;
 
-	i = 0;
-	while (strs[i])
+	if (size == 0)
 	{
-		len += ft_str_len(strs[i]);
-		i++;
+		arr = malloc(sizeof(char));
+		if (arr == NULL)
+			return (NULL);
+		arr[0] = 0;
+		return (arr);
 	}
-	len = (len * size - 1) + 1;
-	ans = (char *)malloc(sizeof(char) * len);
-	i = 0;
-	ans[0] = 0;
-	while (strs[i])
+	count = ft_len(strs, sep, size);
+	arr = (char *)malloc(count * sizeof(char));
+	if (arr == NULL)
+		return (NULL);
+	arr[0] = 0;
+	count = 0;
+	while (count < size - 1)
 	{
-		ft_putstr(ans, strs[i]);
-		if (i < size)
-		{
-			ft_putstr(ans, sep);
-		}
-		i++;
+		ft_strcat(arr, strs[count]);
+		ft_strcat(arr, sep);
+		count++;
 	}
-	return (ans);
+	ft_strcat(arr, strs[count]);
+	return (arr);
 }

@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_range.c                                         :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeblee <yeblee@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yeblee <yeblee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/19 12:16:35 by yeblee            #+#    #+#             */
-/*   Updated: 2022/01/23 11:19:45 by yeblee           ###   ########.fr       */
+/*   Created: 2022/01/23 11:29:03 by yeblee            #+#    #+#             */
+/*   Updated: 2022/01/23 11:29:10 by yeblee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-int	*ft_range(int min, int max)
+int	ft_strcmp(char *s1, char *s2)
 {
 	int	i;
-	int	*num;
 
 	i = 0;
-	if (min >= max)
-		return (0);
-	num = (int *)malloc(sizeof(int) * max - min);
-	while (i + min < max)
-	{
-		num[i] = min + i;
+	while (s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i])
 		i++;
-	}
-	return (num);
+	return (s1[i] - s2[i]);
 }

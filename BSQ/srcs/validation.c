@@ -1,36 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ultimate_range.c                                :+:      :+:    :+:   */
+/*   validation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yeblee <yeblee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/19 14:36:38 by yeblee            #+#    #+#             */
-/*   Updated: 2022/01/23 11:19:47 by yeblee           ###   ########.fr       */
+/*   Created: 2022/01/24 11:09:01 by yeblee            #+#    #+#             */
+/*   Updated: 2022/01/24 11:56:20 by yeblee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "bsq.h"
 
-int	ft_ultimate_range(int **range, int min, int max)
+int	validation(void)
 {
-	int	i;
-	int	*num;
-
-	i = 0;
-	if (min >= max)
-	{
-		*range = 0;
-		return (0);
-	}
-	num = (int *)malloc(sizeof(int) * (max - min + 3));
-	if (num == NULL)
-		return (-1);
-	while (num[i])
-	{
-		num[i] = min + i;
-		i++;
-	}
-	*range = num;
-	return (i);
+	return (1);
 }

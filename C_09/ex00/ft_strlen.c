@@ -1,36 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ultimate_range.c                                :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeblee <yeblee@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yeblee <yeblee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/19 14:36:38 by yeblee            #+#    #+#             */
-/*   Updated: 2022/01/23 11:19:47 by yeblee           ###   ########.fr       */
+/*   Created: 2022/01/23 11:29:18 by yeblee            #+#    #+#             */
+/*   Updated: 2022/01/23 17:11:20 by yeblee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <unistd.h>
 
-int	ft_ultimate_range(int **range, int min, int max)
+int	ft_strlen(char *str)
 {
 	int	i;
-	int	*num;
 
 	i = 0;
-	if (min >= max)
-	{
-		*range = 0;
-		return (0);
-	}
-	num = (int *)malloc(sizeof(int) * (max - min + 3));
-	if (num == NULL)
-		return (-1);
-	while (num[i])
-	{
-		num[i] = min + i;
+	while (str[i] != '\0')
 		i++;
-	}
-	*range = num;
 	return (i);
 }
