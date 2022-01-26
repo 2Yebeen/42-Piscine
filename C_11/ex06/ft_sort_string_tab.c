@@ -24,13 +24,13 @@ void ft_sort_string_tab(char **tab)
     char (*fp)(char, char);
 
     i = 0;
-    while (tab[i])
+    while (tab[i + 1])
     {
-        j = i + 1;
-        while (tab[j])
+        j = 0;
+        while (tab[j + 1 + i])
         {
-            if(ft_strcmp(tab[i], tab[j]) > 0)
-                ft_swap(tab[i], tab[j]);
+            if(ft_strcmp(tab[j], tab[j + 1]) > 0)
+                ft_swap(tab[j], tab[j + 1]);
             j++;
         }
         i++;
