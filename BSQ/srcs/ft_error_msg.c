@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_error_msg.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yeblee <yeblee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/26 16:45:15 by yeblee            #+#    #+#             */
-/*   Updated: 2022/01/26 16:45:15 by yeblee           ###   ########.fr       */
+/*   Created: 2022/01/26 16:45:33 by yeblee            #+#    #+#             */
+/*   Updated: 2022/01/26 16:45:33 by yeblee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bsq.h"
 
-int	main(int argc, char *argv[])
+void	ft_error_msg(char *str)
 {
 	int	i;
 
-	if (argc == 1)
-		bsq(0);
-	else
+	i = 0;
+	while (str[i])
 	{
-		i = 1;
-		while (i < argc)
-		{
-			bsq(argv[i]);
-			i++;
-		}
+		write(2, &str[i], 1);
+		i++;
 	}
-	system("leaks BSQ");
-	return (0);
 }

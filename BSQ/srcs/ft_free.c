@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yeblee <yeblee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/26 16:45:15 by yeblee            #+#    #+#             */
-/*   Updated: 2022/01/26 16:45:15 by yeblee           ###   ########.fr       */
+/*   Created: 2022/01/26 16:45:29 by yeblee            #+#    #+#             */
+/*   Updated: 2022/01/26 16:45:29 by yeblee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bsq.h"
 
-int	main(int argc, char *argv[])
+void	ft_free_map(t_map *map, int size)
 {
-	int	i;
+	int		i;
 
-	if (argc == 1)
-		bsq(0);
-	else
+	i = 0;
+	while (i < size)
 	{
-		i = 1;
-		while (i < argc)
-		{
-			bsq(argv[i]);
-			i++;
-		}
+		free(map->arr[i]);
+		i++;
 	}
-	system("leaks BSQ");
+	free(map->arr);
+	free(map);
+}
+
+char	*ft_free_line(char *line)
+{	
+	free(line);
 	return (0);
 }
